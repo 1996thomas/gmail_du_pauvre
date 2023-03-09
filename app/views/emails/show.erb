@@ -1,0 +1,16 @@
+<%= turbo_frame_tag "frame1" do %>
+<div class="block mb-2 border-[3px] p-3">
+<p class="mb-4">Email : <%= @email.email %></p>
+<p class="mb-4">Objet : <%= @email.object %></p>
+<p class="mb-4"><%= @email.body %></p>
+<p class="mb-4">
+<%if @email.viewed==true  %>
+  Marqué comme lu
+  <% else %>
+  Marqué comme non lu
+  <% end %>
+  </p>
+<%= link_to 'Back', emails_path, class:"btn bg-green-300 p-1" %>
+</div>
+<% end %>
+  

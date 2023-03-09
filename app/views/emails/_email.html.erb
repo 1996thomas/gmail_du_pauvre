@@ -1,0 +1,21 @@
+<div class="block mb-2 border-[3px] p-3 flex divide-x">
+  <%= form_with(model: email, class:"inline-block my-3 mr-2 flex-1 ") do |form| %>
+    <p class="text-[12px]">Marquer comme lu : 
+      <%= form.check_box :viewed, data: { id: email.id, action: "emails#toggle"}, class: "mr-2 align-middle bg-gray-50 border-gray-300 focus:ring-3 focus:ring-blue-300 h-5 w-5 rounded checked:bg-green-500" %>
+    </p>
+  <% end %>
+  <div class="flex-[2_3_0%] pl-5 ">
+    <%if email.viewed==true %>
+      <p class="text-slate-500">From : <%= email.email %></p>
+      <p class="text-slate-500">Object : <%= email.object %> </p>
+      <%else%>
+        <p class="text-red-500">From : <%= email.email %></p>
+        <p class="text-red-500">Object : <%= email.object %> </p>
+    <% end %>
+  </div>
+  <div class="buttons flex-1 flex justify-end items-center">
+    <%= button_to "Delete", email_path(email), method: :delete, class: "btn bg-red-300 mx-1 p-1 " %> 
+    <%= button_to "Show", email_path(email), data:{turbo_frame:'frame1'},method: :get, class: "btn bg-blue-300 mx-1 p-1" %>
+  </div>
+</div>
+

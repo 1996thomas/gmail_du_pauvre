@@ -1,0 +1,14 @@
+<div class="flex">  
+  <div class=" flex-column flex-1" data-controller="emails">
+  <div class="flex items-center">
+    <h1 class="font-bold text-xl mb-7">Email</h1>
+    <a href="<%=new_email_path%>" method="post" data-turbo-method="post" class="mb-7 ml-4">Nouveau</a>
+    </div>
+      <%= render @emails %>
+  </div>
+  <div class="show_email flex-1 ml-5">
+    <h1 class="font-bold text-xl mb-7">Aperçu</h1>
+      <%= turbo_frame_tag "frame1" do %>
+      <% end %>
+  </div>
+</div>
